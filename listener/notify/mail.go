@@ -16,7 +16,7 @@ func (mail *Mail) Send(message event.Message) error {
 	gomailMessage := gomail.NewMessage()
 	gomailMessage.SetHeader("From", Conf.MailServer.From)
 	gomailMessage.SetHeader("To", Conf.MailUser.Email...)
-	gomailMessage.SetHeader("Subject", "Supervisor事件通知")
+	gomailMessage.SetHeader("Subject", "Supervisor 告警")
 	gomailMessage.SetBody("text/html", body)
 	mailer := gomail.NewDialer(
 		Conf.MailServer.Host,
