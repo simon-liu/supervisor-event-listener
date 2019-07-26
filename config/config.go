@@ -82,7 +82,7 @@ func parseMailServer(section *ini.Section) MailServer {
 	host := section.Key("mail.server.host").String()
 	host = strings.TrimSpace(host)
 	port, portErr := section.Key("mail.server.port").Int()
-	if user == "" || password == "" || host == "" || portErr != nil {
+	if from == "" || password == "" || host == "" || portErr != nil {
 		Exit("邮件服务器配置错误")
 	}
 
