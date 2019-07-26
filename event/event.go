@@ -3,7 +3,7 @@ package event
 import (
 	"errors"
 	"fmt"
-	"github.com/ouqiang/supervisor-event-listener/utils"
+	"github.com/simon-liu/supervisor-event-listener/utils"
 	"os"
 	"strconv"
 	"strings"

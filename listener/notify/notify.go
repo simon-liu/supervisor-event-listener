@@ -1,8 +1,8 @@
 package notify
 
 import (
-	"github.com/ouqiang/supervisor-event-listener/config"
-	"github.com/ouqiang/supervisor-event-listener/event"
+	"github.com/simon-liu/supervisor-event-listener/config"
+	"github.com/simon-liu/supervisor-event-listener/event"
 
 	"fmt"
 	"os"

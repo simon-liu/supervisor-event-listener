@@ -3,7 +3,7 @@ package config
 import (
 	"flag"
 	"fmt"
-	"github.com/ouqiang/supervisor-event-listener/utils"
+	"github.com/simon-liu/supervisor-event-listener/utils"
 	"gopkg.in/ini.v1"
 	"os"
 	"strings"

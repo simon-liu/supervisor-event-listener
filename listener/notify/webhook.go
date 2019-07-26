@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/ouqiang/supervisor-event-listener/event"
-	"github.com/ouqiang/supervisor-event-listener/utils/httpclient"
+	"github.com/simon-liu/supervisor-event-listener/event"
+	"github.com/simon-liu/supervisor-event-listener/utils/httpclient"
 )
 
 type WebHook struct{}

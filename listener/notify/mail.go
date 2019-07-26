@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/go-gomail/gomail"
-	"github.com/ouqiang/supervisor-event-listener/event"
+	"github.com/simon-liu/supervisor-event-listener/event"
 	"strings"
 )
 
