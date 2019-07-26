@@ -75,7 +75,7 @@ func ParseConfig() *Config {
 }
 
 func parseMailServer(section *ini.Section) MailServer {
-	from := strings.TrimSpace(section.Key("mail.server.user").String())
+	from := strings.TrimSpace(section.Key("mail.server.from").String())
 	login := strings.TrimSpace(section.Key("mail.server.login").String())
 	password := section.Key("mail.server.password").String()
 	password = strings.TrimSpace(password)
