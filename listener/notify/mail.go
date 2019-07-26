@@ -14,14 +14,14 @@ func (mail *Mail) Send(message event.Message) error {
 	body := message.String()
 	body = strings.Replace(body, "\n", "<br>", -1)
 	gomailMessage := gomail.NewMessage()
-	gomailMessage.SetHeader("From", Conf.MailServer.User)
+	gomailMessage.SetHeader("From", Conf.MailServer.From)
 	gomailMessage.SetHeader("To", Conf.MailUser.Email...)
 	gomailMessage.SetHeader("Subject", "Supervisor事件通知")
 	gomailMessage.SetBody("text/html", body)
 	mailer := gomail.NewDialer(
 		Conf.MailServer.Host,
 		Conf.MailServer.Port,
-		Conf.MailServer.LOGIN,
+		Conf.MailServer.Login,
 		Conf.MailServer.Password,
 	)
 	err := mailer.DialAndSend(gomailMessage)
