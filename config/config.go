@@ -28,7 +28,8 @@ type Slack struct {
 
 // 邮件服务器
 type MailServer struct {
-	User     string
+	Login    string
+	Username string
 	Password string
 	Host     string
 	Port     int
@@ -76,6 +77,7 @@ func ParseConfig() *Config {
 func parseMailServer(section *ini.Section) MailServer {
 	user := section.Key("mail.server.user").String()
 	user = strings.TrimSpace(user)
+	login := strings.TrimSpace(section.Key("mail.server.login").String())
 	password := section.Key("mail.server.password").String()
 	password = strings.TrimSpace(password)
 	host := section.Key("mail.server.host").String()
@@ -86,7 +88,8 @@ func parseMailServer(section *ini.Section) MailServer {
 	}
 
 	mailServer := MailServer{}
-	mailServer.User = user
+	mailServer.Login = login
+	mailServer.Username = user
 	mailServer.Password = password
 	mailServer.Host = host
 	mailServer.Port = port
