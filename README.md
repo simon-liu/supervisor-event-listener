@@ -9,7 +9,7 @@ supervisor-event-listener监听进程异常退出事件, 并发送通知.
 [v1.0](https://github.com/ouqiang/supervisor-event-listener/releases)
 
 ### 源码安装
-* `go get -u github.com/ouqiang/supervisor-event-listener`
+* `go get -u github.com/simon-liu/supervisor-event-listener`
 
 ## Supervisor配置
 ```ini
