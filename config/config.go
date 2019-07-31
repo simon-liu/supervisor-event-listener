@@ -6,15 +6,17 @@ import (
 	"github.com/simon-liu/supervisor-event-listener/utils"
 	"gopkg.in/ini.v1"
 	"os"
+	"strconv"
 	"strings"
 )
 
 type Config struct {
-	NotifyType string
-	WebHook    WebHook
-	MailServer MailServer
-	MailUser   MailUser
-	Slack      Slack
+	NotifyType     string
+	NotifyInterval int
+	WebHook        WebHook
+	MailServer     MailServer
+	MailUser       MailUser
+	Slack          Slack
 }
 
 type WebHook struct {
@@ -60,6 +62,12 @@ func ParseConfig() *Config {
 	}
 
 	config := &Config{}
+
+	config.NotifyInterval, err = strconv.Atoi(strings.TrimSpace(section.Key("notify_interval").String()))
+	if err != nil {
+		Exit("Invalid notify interval")
+	}
+
 	config.NotifyType = notifyType
 	switch notifyType {
 	case "mail":
