@@ -12,7 +12,7 @@ import (
 
 type Config struct {
 	NotifyType     string
-	NotifyInterval int
+	NotifyInterval int64
 	WebHook        WebHook
 	MailServer     MailServer
 	MailUser       MailUser
@@ -63,7 +63,8 @@ func ParseConfig() *Config {
 
 	config := &Config{}
 
-	config.NotifyInterval, err = strconv.Atoi(strings.TrimSpace(section.Key("notify_interval").String()))
+	interval, err := strconv.Atoi(strings.TrimSpace(section.Key("notify_interval").String()))
+	config.NotifyInterval = int64(interval)
 	if err != nil {
 		Exit("Invalid notify interval")
 	}
