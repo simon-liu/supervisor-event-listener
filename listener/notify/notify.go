@@ -10,13 +10,15 @@ import (
 )
 
 var (
-	Conf  *config.Config
-	queue chan event.Message
+	Conf       *config.Config
+	queue      chan event.Message
+	LastNotify map[string]int64
 )
 
 func init() {
 	Conf = config.ParseConfig()
 	queue = make(chan event.Message, 10)
+	LastNotify = make(map[string]int64)
 	go start()
 }
 
@@ -50,6 +52,10 @@ func start() {
 }
 
 func send(notifyHandler Notifiable, message event.Message) {
+	if time.Now().Unix()-LastNotify[message.Payload.ProcessName] <= Conf.NotifyInterval {
+		return
+	}
+
 	// 最多重试3次
 	tryTimes := 3
 	i := 0
