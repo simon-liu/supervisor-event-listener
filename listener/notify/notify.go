@@ -53,6 +53,7 @@ func start() {
 
 func send(notifyHandler Notifiable, message event.Message) {
 	if time.Now().Unix()-LastNotify[message.Payload.ProcessName] <= Conf.NotifyInterval {
+		fmt.Fprint(os.Stdout, "Alert too often\n")
 		return
 	}
 
