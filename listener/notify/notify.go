@@ -68,4 +68,6 @@ func send(notifyHandler Notifiable, message event.Message) {
 		time.Sleep(30 * time.Second)
 		i++
 	}
+
+	LastNotify[message.Payload.ProcessName] = time.Now().Unix()
 }
